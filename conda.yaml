@@ -17,5 +17,5 @@ dependencies:
       - robotframework-browser==16.2.0
       - python-dotenv
 
-rccPostInstall:
-  - rfbrowser init                    # Initialize Playwright
+#rccPostInstall:
+#  - rfbrowser init                    # Initialize Playwright

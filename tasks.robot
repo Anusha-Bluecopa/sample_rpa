@@ -1,14 +1,19 @@
 *** Settings ***
 Library    RPA.Robocorp.Vault
 Library    RPA.FileSystem
+Library    RPA.Browser.Playwright
 
 *** Variables ***
 ${URL}      %{WEBSITE_URL}
 ${source_folder}    schema/stream1
 ${destination_folder}    output/data/stream1
+${URL}            https://www.example.com
 
 *** Tasks ***
 Minimal task
+    New Browser     headless=${False}  # starts in headless in Control Room
+    New Page    https://robocorp.com/docs/development-guide/browser/playwright
+
     ${secret}=    Get Secret    default
     Log    ${URL}
     Log    ${secret}[WEBSITE_URL]

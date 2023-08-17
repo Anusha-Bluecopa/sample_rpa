@@ -8,9 +8,14 @@ channels:
 dependencies:
   # Define conda-forge packages here -> https://anaconda.org/search
   # When available, prefer the conda-forge packages over pip as installations are more efficient.
-  - python=3.9.16               # https://pyreadiness.org/3.9/ 
+  - python=3.9.16               # https://pyreadiness.org/3.9/
+  - nodejs=16.14.2
   - pip=22.1.2                  # https://pip.pypa.io/en/stable/news/
   - pip:
       # Define pip packages here -> https://pypi.org/
       - rpaframework==24.1.2    # https://rpaframework.org/releasenotes.html
+      - robotframework-browser==16.2.0
       - python-dotenv
+
+rccPostInstall:
+  - rfbrowser init                    # Initialize Playwright

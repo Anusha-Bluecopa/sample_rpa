@@ -15,7 +15,6 @@ dependencies:
       # Define pip packages here -> https://pypi.org/
       - rpaframework==24.1.2    # https://rpaframework.org/releasenotes.html
       - robotframework-browser==16.2.0
-      - webdrivermanager
       - python-dotenv
 
 rccPostInstall:

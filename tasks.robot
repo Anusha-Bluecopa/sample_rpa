@@ -2,6 +2,7 @@
 Library    RPA.Robocorp.Vault
 Library    RPA.FileSystem
 Library    RPA.Browser.Playwright
+Library    RPA.Excel.Files
 
 *** Variables ***
 ${URL}      %{WEBSITE_URL}
@@ -13,7 +14,14 @@ ${URL}            https://www.example.com
 Minimal task
     New Browser     headless=${True}  # starts in headless in Control Room
     New Page    https://robocorp.com/docs/development-guide/browser/playwright
-
+    Create Workbook  my_new_excel.xlsx
+    FOR    ${index}    IN RANGE    20
+        &{row}=       Create Dictionary
+        ...           Row No   ${index}
+        ...           Amount   ${index * 25}
+        Append Rows to Worksheet  ${row}  header=${TRUE}
+    END
+    Save Workbook
     ${secret}=    Get Secret    default
     Log    ${URL}
     Log    ${secret}[WEBSITE_URL]

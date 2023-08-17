@@ -11,7 +11,7 @@ ${URL}            https://www.example.com
 
 *** Tasks ***
 Minimal task
-    New Browser     headless=${False}  # starts in headless in Control Room
+    New Browser     headless=${True}  # starts in headless in Control Room
     New Page    https://robocorp.com/docs/development-guide/browser/playwright
 
     ${secret}=    Get Secret    default

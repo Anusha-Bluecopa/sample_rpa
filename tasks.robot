@@ -3,17 +3,18 @@ Library    RPA.Robocorp.Vault
 Library    RPA.FileSystem
 Library    RPA.Browser.Playwright
 Library    RPA.Excel.Files
+Library    RPA.Browser.Selenium
 
 *** Variables ***
 ${URL}      %{WEBSITE_URL}
 ${source_folder}    schema/stream1
 ${destination_folder}    output/data/stream1
-${URL}            https://www.example.com
 
 *** Tasks ***
 Minimal task
     New Browser     headless=${True}  # starts in headless in Control Room
     New Page    https://robocorp.com/docs/development-guide/browser/playwright
+    Open Browser    https://robocorp.com/docs/development-guide/browser/playwright
     Create Workbook  my_new_excel.xlsx
     FOR    ${index}    IN RANGE    20
         &{row}=       Create Dictionary

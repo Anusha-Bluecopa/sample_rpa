@@ -12,9 +12,9 @@ ${destination_folder}    output/data/stream1
 
 *** Tasks ***
 Minimal task
-    New Browser  firefox  headless=${True}  # starts in headless in Control Room
+    New Browser   headless=${True}  # starts in headless in Control Room
     New Page    https://google.com
-    RPA.Browser.Selenium.Open Browser  https://www.google.com  headlessfirefox
+    RPA.Browser.Selenium.Open Browser  https://www.google.com  headlesschrome
     Create Workbook  my_new_excel.xlsx
     FOR    ${index}    IN RANGE    20
         &{row}=       Create Dictionary

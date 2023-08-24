@@ -4,6 +4,7 @@ Library    RPA.FileSystem
 #Library    RPA.Browser.Playwright
 Library    RPA.Excel.Files
 Library    RPA.Browser.Selenium
+Library    OperatingSystem
 
 *** Variables ***
 ${URL}      %{WEBSITE_URL}
@@ -14,6 +15,8 @@ ${destination_folder}    output/data/stream1
 Minimal task
 #    New Browser   headless=${True}  # starts in headless in Control Room
 #    New Page    https://google.com
+    ${output} =	Run	python selenium1.py
+    Log    ${output}
     RPA.Browser.Selenium.Open Browser  https://www.google.com  headlesschrome  options=add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")
     RPA.Browser.Selenium.Open Browser  https://www.google.com  headlessfirefox
     Create Workbook  my_new_excel.xlsx
